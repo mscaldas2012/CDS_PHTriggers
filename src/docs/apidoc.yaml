@@ -1,0 +1,83 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: PHTriggers API
+  description: This services support CDS-hooks for Public health use cases providing Initial decision Support if an EHR event qualifies as a possible Reportable event.
+  version: "0.0.1"
+# the domain of the service
+host: localhost
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /
+produces:
+  - application/json
+tags:
+  - name: info
+    description: metadata information about the services
+  - name: CDS Hooks
+    description: cds specific endpoints for cds-hooks implementations
+paths:
+  /info/about:
+    get:
+      summary: Describes the api and provide contact information
+      tags:
+        - info
+      description: |
+        This endpoint simply retrieves documentation information and provide contact information.
+
+      responses:
+        200:
+          description: An page with basic information.
+          schema:
+            type: string
+  /info/ping:
+    get:
+      summary: simple service to validate that the services are up and running
+      tags:
+        - info
+      responses:
+        200:
+          description: The server is up and running.
+        404:
+          description: Server is not running.
+
+  /info/version:
+    get:
+      summary: Informs the latest version that is running for these services
+      tags:
+        - info
+      responses:
+        200:
+          description: Retrieves the version of the system deployed.
+
+  /cds-services:
+    get:
+      summary: retrives a list of all services (hooks) available on this service.
+      tags:
+        - CDS Hooks
+      responses:
+        200:
+          description: The list of services supported by this system.
+          examples:
+            application/json:
+              services:
+                -
+                  id: "code_reportability"
+                  hook: "patient_view"
+                  title: "Code Reportability verification"
+                  description: "Validates whether a code needs to be reported to CDC"
+
+definitions:
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string

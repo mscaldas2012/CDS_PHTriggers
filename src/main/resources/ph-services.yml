@@ -1,0 +1,7 @@
+
+services:
+  -
+    id: code_reportability
+    title: Code Reportability verification
+    description: Validates whether a code needs to be reported to CDC
+    hook: patient_view

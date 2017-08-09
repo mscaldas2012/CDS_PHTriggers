@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: About-Rest
+
+server:
+  apiContext: api
+  versionContext: v
+  context-path: /cds-services
+  port: 10005
+

@@ -1,0 +1,19 @@
+spring:
+
+summary: This services support CDS-hooks for Public health use cases providing Initial decision Support if an EHR event qualifies as a possible Reportable event.
+docs: http://localhost:8080/docs
+versions:
+ - v1
+contacts:
+  -
+    name: Rishi Tarar
+    email: Rishi.Tarar@ngc.com
+    role: Principal Investigator
+  -
+    name: Sunanda McGarvey
+    email: aky1@cdc.gov
+    role: Subject Matter Expert/RCTC Project Manager
+  -
+    name: Marcelo Caldas
+    email: Marcelo.Caldas@ngc.com
+    role: Soft. Architect

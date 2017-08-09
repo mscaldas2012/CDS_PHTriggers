@@ -1,0 +1,15 @@
+spring:
+  profiles: dev
+summary: Test applications
+docs: http://localhost:8080/docs
+versions:
+  - vTgit
+contacts:
+  -
+    name: Marcelo
+    email: mscaldas@gmail.com
+    role: Soft. Architect
+  -
+    name: A
+    email: b@gmail.com
+    role: d
