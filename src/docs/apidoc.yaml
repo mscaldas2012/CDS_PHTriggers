@@ -69,15 +69,20 @@ paths:
                   hook: "patient_view"
                   title: "Code Reportability verification"
                   description: "Validates whether a code needs to be reported to CDC"
-
-definitions:
-  Error:
-    type: object
-    properties:
-      code:
-        type: integer
-        format: int32
-      message:
-        type: string
-      fields:
-        type: string
+  /cds-servcices/code_reportability:
+    post:
+      summary: Executes the code repostability hook of PHTriggers
+      tags:
+        - CDS Hooks
+      parameters:
+        - in: body
+          name: body
+          description: |
+            JSON payload with content from previous hook - TBD-define schema
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: |
+            CDS card with information regarding codes found on content sent whether they are to be reported or not to Public Health Agencies.
