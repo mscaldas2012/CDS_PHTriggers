@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CDS PH Triggers",
+		"_postman_id": "0fea9cd1-f802-226b-98e5-c321d89e5a0d",
+		"description": "Quick scripts to test the CDS Hooks for PH Triggers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:10005/cds-services",
+			"request": {
+				"url": "http://localhost:10005/cds-services",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8089/cds-services/code_reportability",
+			"request": {
+				"url": "http://localhost:8089/cds-services/code_reportability",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
