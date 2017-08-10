@@ -5,6 +5,6 @@ spring:
 server:
   apiContext: api
   versionContext: v
-  context-path: /cds-services
+  contextPath: /cds-services
   port: 10005
 

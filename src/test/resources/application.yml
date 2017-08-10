@@ -13,3 +13,11 @@ contacts:
     name: A
     email: b@gmail.com
     role: d
+
+
+server:
+  apiContext: api
+  versionContext: v
+  contextPath: /cds-services
+  port: 10005
+

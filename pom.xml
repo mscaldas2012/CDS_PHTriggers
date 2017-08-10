@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<docker.image.prefix>mscaldas</docker.image.prefix>
+		<docker.image.prefix>northropgrumman</docker.image.prefix>
         <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
 	</properties>
 
@@ -91,7 +91,7 @@
 				<version>0.4.11</version>
 				<configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-					<dockerDirectory>src/docker-dir</dockerDirectory>
+					<dockerDirectory>src</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
