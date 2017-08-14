@@ -1,6 +1,7 @@
 package gov.cdc.ncezid.eip.repository;
 
 import com.ng.cds.phTriggers.PublicHealthTriggers;
+import com.ng.cds.phTriggers.model.RCTCCode;
 import com.ng.cds.phTriggers.repository.RCTCCodesRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,17 +24,12 @@ import java.util.List;
 
     @Test
     public void readCodes() throws Exception {
-        List<String[]> result = repo.readCodes();
+        List<RCTCCode> result = repo.getCodesByCategory("Lab obs Test Name");
         printResults(result);
     }
 
-    private void printResults(List<String[]> result) {
-        result.stream().forEach(l -> {
-            for(String i: l) {
-                System.out.print(i + "\t ");
-            }
-            System.out.println();
-        });
+    private void printResults(List<RCTCCode> result) {
+        result.stream().forEach(System.out::println);
     }
 
 }

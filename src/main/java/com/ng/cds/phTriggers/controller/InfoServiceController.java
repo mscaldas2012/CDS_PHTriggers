@@ -1,18 +1,14 @@
 package com.ng.cds.phTriggers.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.ng.cds.phTriggers.repository.RCTCCodesRepository;
-import com.ng.cds.rest.ApiVersion;
 import com.ng.cds.phTriggers.About;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -26,9 +22,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 public class InfoServiceController {
     @Autowired
     private About about;
-
-    @Autowired
-    private RCTCCodesRepository repo;
 
     @RequestMapping(value="/about", method = GET)
            // produces = {"application/cdc.info.about-v1+json"}) //This forces Safari to download the file instead of opening it on the browser.
@@ -47,10 +40,7 @@ public class InfoServiceController {
         return "Hello There! I'm alive.\nYou pinged me at " + ZonedDateTime.now().format( DateTimeFormatter.ISO_INSTANT );
     }
 
-    @RequestMapping("/test")
-    public List<String[]> testRCTCCodes() throws IOException {
-        return repo.readCodes();
-    }
+
 
 }
 

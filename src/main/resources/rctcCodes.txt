@@ -1,5 +1,0 @@
-"1","US","United States, USA"
-"2","MY","Malaysia"
-"3","AU","Australia"
-4,BR,Brazil
-5,RU, "Russia, USSR"

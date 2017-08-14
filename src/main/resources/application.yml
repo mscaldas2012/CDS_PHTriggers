@@ -10,4 +10,4 @@ server:
 
 
 triggersConfig:
-  rctc_codes: rctcCodes.txt
+  rctc_codes: rctc_codes.csv
