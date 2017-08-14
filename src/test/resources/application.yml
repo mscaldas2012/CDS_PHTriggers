@@ -21,3 +21,4 @@ server:
   contextPath: /cds-services
   port: 10005
 
+rctc_codes: rctcCodes.txt
