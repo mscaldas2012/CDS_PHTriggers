@@ -1,6 +1,6 @@
 !.mvn/wrapper/maven-wrapper.jar
 
-.DS_STORE
+**/.DS_Store
 
 ### STS ###
 .classpath
