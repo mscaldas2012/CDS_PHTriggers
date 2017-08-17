@@ -23,3 +23,74 @@ http://editor.swagger.io/?url=https://raw.githubusercontent.com/mscaldas2012/CDS
 
 Travis:<BR>
 https://travis-ci.org/mscaldas2012/CDS_PHTriggers
+
+#Sample Request
+```
+{
+   "hookInstance" : "<d1577c69-dfbe-44ad-ba6d-3e05e953b2ea>",
+   "fhirServer" : "<EHR FHIR URL>",
+   "hook" : "lab-create",
+   "redirect" : "http://hooks2.smarthealthit.org/service-done.html",
+   "user" : "Practitioner/example",
+   "context" : [
+                  {
+                    "context": {
+                      "resourceType": "Observation",
+                      "status": "preliminary",
+                      "code": {
+                        "coding": [
+                          {
+                            "system": "http://loinc.org",
+                            "code": "43890-3",
+                            "display": "Bordetella pertussis [Presence] in Sputum by Organism specific culture"
+                          }
+                        ]
+                      }
+                    }
+                  }
+   ],
+   "patient" : "1288992",
+   "prefetch" : {   
+      }
+   }
+}
+```
+
+
+#Sample Response
+```
+{
+  "cards": [
+	{
+      "summary": "Another card",
+      "detail" : "" ,
+      "indicator": "info",
+      "suggestions":[
+      					{
+      						"label": "Send Case Report",
+      						"uuid" : "<generateduuid>",
+      						actions: [
+      									{
+      										"type": "create",
+      										"description" : "Send Case Report for Adjucation to Public Health Intermediary", 
+      										"resources" : "<new_order>"
+      									}
+      						]
+      					}
+      				],
+      "links"
+      "source": {
+        "label": "Static CDS Service Example",
+        "url": "",
+        "type": "smart"
+      }
+    ],
+    "decisions" : [
+    				{
+    					"create" : ["<new_order_id>","<new_order_id>"],
+    					"delete" : []
+    				}
+
+				]
+}
+```
