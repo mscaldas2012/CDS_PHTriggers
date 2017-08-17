@@ -30,7 +30,7 @@ https://travis-ci.org/mscaldas2012/CDS_PHTriggers
    "hookInstance" : "<d1577c69-dfbe-44ad-ba6d-3e05e953b2ea>",
    "fhirServer" : "<EHR FHIR URL>",
    "hook" : "lab-create",
-   "redirect" : "http://hooks2.smarthealthit.org/service-done.html",
+   "redirect" : "<http://hooks2.smarthealthit.org/service-done.html>",
    "user" : "Practitioner/example",
    "context" : [
                   {
@@ -41,15 +41,15 @@ https://travis-ci.org/mscaldas2012/CDS_PHTriggers
                         "coding": [
                           {
                             "system": "http://loinc.org",
-                            "code": "43890-3",
-                            "display": "Bordetella pertussis [Presence] in Sputum by Organism specific culture"
+                            "code": "<43890-3>",
+                            "display": "<Bordetella pertussis [Presence] in Sputum by Organism specific culture>"
                           }
                         ]
                       }
                     }
                   }
    ],
-   "patient" : "1288992",
+   "patient" : "<1288992>",
    "prefetch" : {   
       }
    }
