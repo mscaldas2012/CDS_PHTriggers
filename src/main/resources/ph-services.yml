@@ -1,7 +1,7 @@
 
 services:
   -
-    id: code_reportability
+    id: phtrigger_rctc
     title: Code Reportability verification
     description: Validates whether a code needs to be reported to CDC
     hook: patient_view
