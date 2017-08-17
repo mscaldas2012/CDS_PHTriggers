@@ -62,35 +62,39 @@ https://travis-ci.org/mscaldas2012/CDS_PHTriggers
 {
   "cards": [
 	{
-      "summary": "Another card",
-      "detail" : "" ,
+      "summary": "This case is Possibly Reportable. It should be sent as an eICR to Public Health Intermediary for final Adjudication",
+      "detail" : "This card shows the action to be taken" ,
       "indicator": "info",
-      "suggestions":[
-      					{
-      						"label": "Send Case Report",
-      						"uuid" : "<generateduuid>",
-      						actions: [
-      									{
-      										"type": "create",
-      										"description" : "Send Case Report for Adjucation to Public Health Intermediary", 
-      										"resources" : "<new_order>"
-      									}
-      						]
-      					}
-      				],
+      "suggestions":
+      [
+      	{
+      		"label": "Send Case Report",
+      		"uuid" : "<generateduuid>",
+      		actions: 
+      		[
+      			{
+   				"type": "create",
+   				"description" : "Send Case Report for Adjudication to Public Health Intermediary", 
+   				"resources" : "<new_order>"
+      			}
+      		]
+      	}
+      ],
       "links"
       "source": {
-        "label": "Static CDS Service Example",
-        "url": "",
+        "label": "PHTriggers RCTC Service",
+        "url": "https://cds-services.ng-atl.com/cds-services/code_reportability",
         "type": "smart"
       }
     ],
-    "decisions" : [
-    				{
-    					"create" : ["<new_order_id>","<new_order_id>"],
-    					"delete" : []
-    				}
 
-				]
+    "decisions" : 
+    [
+    	{
+    	"create" : ["<new_order_id>","<new_order_id>"],
+    	"delete" : []
+    	}
+	]
 }
+
 ```
