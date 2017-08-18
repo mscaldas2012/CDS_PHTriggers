@@ -51,6 +51,8 @@ https://travis-ci.org/mscaldas2012/CDS_PHTriggers
    ],
    "patient" : "<1288992>",
    "prefetch" : {   
+   	"patient": "Patient/{{Patient.id}}",
+        "observations": "Observation?patient={{Patient.id}}"
       }
    }
 }
