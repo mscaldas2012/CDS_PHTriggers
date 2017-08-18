@@ -34,7 +34,7 @@ public class RCTCCodesRepository {
         RCTCCategory cat = cache.get(category);
         if (cat != null && cat.getCodes() != null && !cat.getCodes().isEmpty()) {
             List<RCTCCode> codes = cat.getCodes().stream().filter(r -> r.getCode().equals(code)).collect(Collectors.toList());
-            if (codes!=null && codes.size() > 0)
+            if (codes != null && codes.size() > 0)
                 return codes.get(0);
         }
         return null;

@@ -1,4 +1,4 @@
-<a href="https://travis-ci.org/mscaldas2012/CDS_PHTriggers"><img src="https://travis-ci.org/mscaldas2012/CDS_PHTriggers.svg?branch=master"></img></a>
+<a href="https://travis-ci.org/mscaldas2012/CDS_PHTriggers" target="_blank"><img src="https://travis-ci.org/mscaldas2012/CDS_PHTriggers.svg?branch=master"></img></a>
 # Concept
 
 **Hook:** PHTriggerS Hook
@@ -23,6 +23,17 @@ http://editor.swagger.io/?url=https://raw.githubusercontent.com/mscaldas2012/CDS
 
 Travis:<BR>
 https://travis-ci.org/mscaldas2012/CDS_PHTriggers
+
+**Docker:**<BR>
+Build docker image:<BR>
+<code>docker build -t mscaldas/phtrigger:x.y .</code>
+
+Push Image to Docker hub:<BR>
+<code>docker push mscaldas/phtrigger:x.y</code>
+
+Running as docker:<BR>
+<code> docker run -p 80:10005 mscaldas/phtrigger:x.y</code>
+
 
 #Sample Request
 ```
