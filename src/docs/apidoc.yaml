@@ -65,11 +65,11 @@ paths:
             application/json:
               services:
                 -
-                  id: "code_reportability"
-                  hook: "patient_view"
+                  id: "phtriggers_rctc"
+                  hook: "lab-order-create"
                   title: "Code Reportability verification"
                   description: "Validates whether a code needs to be reported to CDC"
-  /cds-servcices/code_reportability:
+  /cds-servcices/phtriggers_rctc:
     post:
       summary: Executes the code repostability hook of PHTriggers
       tags:
