@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "integration-tests": "npm run integration-tests-local",
-    "integration-tests-local": "newman -c src/test/postman/CDSPHTriggers.postman_collection.json -e src/test/Postman/LocalDev.postman_environment.json",
-    "integration-tests-qa": "newman -c src/test/postman/CDSPHTriggers.postman_collection.json -e src/test/Postman/CDS.postman_environment.json"
+    "integration-tests-local": "newman -c src/test/postman/CDSPHTriggers.postman_collection.json -e src/test/postman/LocalDev.postman_environment.json",
+    "integration-tests-qa": "newman -c src/test/postman/CDSPHTriggers.postman_collection.json -e src/test/postman/CDS.postman_environment.json"
   },
   "devDependencies": {
     "newman": "^2.0.5"
