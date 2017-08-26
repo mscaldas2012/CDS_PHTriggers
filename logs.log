@@ -1,0 +1,331 @@
+2017-08-25 15:30:47 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Starting PublicHealthTriggers on Marcelos-MacBook-Pro.local with PID 40943 (/Users/caldama/projects/work/cds/CDS_PHTriggers/target/classes started by caldama in /Users/caldama/projects/work/cds/CDS_PHTriggers)
+2017-08-25 15:30:47 [main] INFO  c.n.i.c.p.PublicHealthTriggers - No active profile set, falling back to default profiles: default
+2017-08-25 15:30:47 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Fri Aug 25 15:30:47 EDT 2017]; root of context hierarchy
+2017-08-25 15:30:49 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-08-25 15:30:50 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 10005 (http)
+2017-08-25 15:30:50 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+2017-08-25 15:30:50 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-08-25 15:30:50 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring embedded WebApplicationContext
+2017-08-25 15:30:50 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3076 ms
+2017-08-25 15:30:50 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-25 15:30:50 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-25 15:30:50 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-25 15:30:50 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-25 15:30:50 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Fri Aug 25 15:30:47 EDT 2017]; root of context hierarchy
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}/{code_id}]}" onto public com.northgrum.irad.cds.phTriggers.model.RCTCCode com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCode(java.lang.String,java.lang.String)
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public org.springframework.http.ResponseEntity<com.northgrum.irad.cds.phTriggers.model.CDSServiceList> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getListOfServices() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/phtriggers_rctc],methods=[POST]}" onto public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String)
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}]}" onto public java.util.List<com.northgrum.irad.cds.phTriggers.model.RCTCCode> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCodesByCategory(java.lang.String)
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/version]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.version()
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/about]}" onto public com.northgrum.irad.cds.phTriggers.About com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.about() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/ping]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.ping()
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:30:51 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:30:51 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-25 15:30:51 [main] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to start end point associated with ProtocolHandler [http-nio-10005]
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:228)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:874)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:590)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:969)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:233)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:178)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.northgrum.irad.cds.phTriggers.PublicHealthTriggers.main(PublicHealthTriggers.java:13)
+2017-08-25 15:30:51 [main] ERROR o.a.catalina.core.StandardService - Failed to start connector [Connector[HTTP/1.1-10005]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-10005]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:233)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:178)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.northgrum.irad.cds.phTriggers.PublicHealthTriggers.main(PublicHealthTriggers.java:13)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:976)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:228)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:874)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:590)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:969)
+	... 14 common frames omitted
+2017-08-25 15:30:51 [main] INFO  o.a.catalina.core.StandardService - Stopping service Tomcat
+2017-08-25 15:30:51 [main] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-08-25 15:30:51 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 10005 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 10005, or configure this application to listen on another port.
+
+2017-08-25 15:30:51 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Fri Aug 25 15:30:47 EDT 2017]; root of context hierarchy
+2017-08-25 15:30:51 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2017-08-25 15:33:04 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Starting PublicHealthTriggers on Marcelos-MacBook-Pro.local with PID 41060 (/Users/caldama/projects/work/cds/CDS_PHTriggers/target/classes started by caldama in /Users/caldama/projects/work/cds/CDS_PHTriggers)
+2017-08-25 15:33:04 [main] INFO  c.n.i.c.p.PublicHealthTriggers - No active profile set, falling back to default profiles: default
+2017-08-25 15:33:04 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f3b84b8: startup date [Fri Aug 25 15:33:04 EDT 2017]; root of context hierarchy
+2017-08-25 15:33:05 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-08-25 15:33:06 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 10005 (http)
+2017-08-25 15:33:06 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+2017-08-25 15:33:06 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-08-25 15:33:07 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring embedded WebApplicationContext
+2017-08-25 15:33:07 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2734 ms
+2017-08-25 15:33:07 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-25 15:33:07 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-25 15:33:07 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-25 15:33:07 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-25 15:33:07 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f3b84b8: startup date [Fri Aug 25 15:33:04 EDT 2017]; root of context hierarchy
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}/{code_id}]}" onto public com.northgrum.irad.cds.phTriggers.model.RCTCCode com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCode(java.lang.String,java.lang.String)
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public org.springframework.http.ResponseEntity<com.northgrum.irad.cds.phTriggers.model.CDSServiceList> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getListOfServices() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/phtriggers_rctc],methods=[POST]}" onto public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String)
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}]}" onto public java.util.List<com.northgrum.irad.cds.phTriggers.model.RCTCCode> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCodesByCategory(java.lang.String)
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/version]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.version()
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/about]}" onto public com.northgrum.irad.cds.phTriggers.About com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.about() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/ping]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.ping()
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:33:08 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:33:09 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-25 15:33:10 [main] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to start end point associated with ProtocolHandler [http-nio-10005]
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:228)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:874)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:590)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:969)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:233)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:178)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.northgrum.irad.cds.phTriggers.PublicHealthTriggers.main(PublicHealthTriggers.java:13)
+2017-08-25 15:33:10 [main] ERROR o.a.catalina.core.StandardService - Failed to start connector [Connector[HTTP/1.1-10005]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-10005]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:233)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:178)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at com.northgrum.irad.cds.phTriggers.PublicHealthTriggers.main(PublicHealthTriggers.java:13)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:976)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:228)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:874)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:590)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:969)
+	... 14 common frames omitted
+2017-08-25 15:33:10 [main] INFO  o.a.catalina.core.StandardService - Stopping service Tomcat
+2017-08-25 15:33:10 [main] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-08-25 15:33:10 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 10005 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 10005, or configure this application to listen on another port.
+
+2017-08-25 15:33:10 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f3b84b8: startup date [Fri Aug 25 15:33:04 EDT 2017]; root of context hierarchy
+2017-08-25 15:33:10 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2017-08-25 15:33:52 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Starting PublicHealthTriggers on Marcelos-MacBook-Pro.local with PID 41083 (/Users/caldama/projects/work/cds/CDS_PHTriggers/target/classes started by caldama in /Users/caldama/projects/work/cds/CDS_PHTriggers)
+2017-08-25 15:33:52 [main] INFO  c.n.i.c.p.PublicHealthTriggers - No active profile set, falling back to default profiles: default
+2017-08-25 15:33:52 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Fri Aug 25 15:33:52 EDT 2017]; root of context hierarchy
+2017-08-25 15:33:54 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-08-25 15:33:54 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 10005 (http)
+2017-08-25 15:33:54 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+2017-08-25 15:33:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-08-25 15:33:54 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring embedded WebApplicationContext
+2017-08-25 15:33:54 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2233 ms
+2017-08-25 15:33:54 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-25 15:33:55 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-25 15:33:55 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-25 15:33:55 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-25 15:33:55 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Fri Aug 25 15:33:52 EDT 2017]; root of context hierarchy
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}/{code_id}]}" onto public com.northgrum.irad.cds.phTriggers.model.RCTCCode com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCode(java.lang.String,java.lang.String)
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public org.springframework.http.ResponseEntity<com.northgrum.irad.cds.phTriggers.model.CDSServiceList> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getListOfServices() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/phtriggers_rctc],methods=[POST]}" onto public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String)
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}]}" onto public java.util.List<com.northgrum.irad.cds.phTriggers.model.RCTCCode> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCodesByCategory(java.lang.String)
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/version]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.version()
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/about]}" onto public com.northgrum.irad.cds.phTriggers.About com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.about() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/ping]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.ping()
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:33:56 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-25 15:33:56 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-25 15:33:56 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 10005 (http)
+2017-08-25 15:33:56 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Started PublicHealthTriggers in 4.994 seconds (JVM running for 6.333)
+2017-08-25 16:27:59 [http-nio-10005-exec-2] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-08-25 16:27:59 [http-nio-10005-exec-2] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2017-08-25 16:28:00 [http-nio-10005-exec-2] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 711 ms
+2017-08-25 16:28:00 [http-nio-10005-exec-2] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT - list of Services called.
+2017-08-25 16:28:22 [http-nio-10005-exec-4] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT - list of Services called.
+2017-08-25 16:28:24 [http-nio-10005-exec-5] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - phtriggers_rctc service called.
+2017-08-25 16:28:27 [http-nio-10005-exec-6] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - phtriggers_rctc service called.
+2017-08-25 16:28:27 [http-nio-10005-exec-7] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - phtriggers_rctc service called.
+2017-08-25 16:28:27 [http-nio-10005-exec-7] ERROR c.n.i.c.p.c.CDSServicesController - Unable to parse JSON Sent to phtriggers_rctc. Sending Bad Payload error to user
+2017-08-25 16:28:28 [http-nio-10005-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String)
+2017-08-25 16:34:44 [http-nio-10005-exec-9] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - phtriggers_rctc service called.
+2017-08-25 16:35:05 [http-nio-10005-exec-10] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - phtriggers_rctc service called.
+2017-08-25 16:35:08 [http-nio-10005-exec-1] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - phtriggers_rctc service called.
+2017-08-25 16:35:08 [http-nio-10005-exec-1] ERROR c.n.i.c.p.c.CDSServicesController - Unable to parse JSON Sent to phtriggers_rctc. Sending Bad Payload error to user
+2017-08-25 16:35:14 [http-nio-10005-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String)
+2017-08-26 10:52:48 [Thread-12] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Fri Aug 25 15:33:52 EDT 2017]; root of context hierarchy
+2017-08-26 10:52:48 [Thread-12] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2017-08-26 10:52:56 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Starting PublicHealthTriggers on Marcelos-MacBook-Pro.local with PID 42418 (/Users/caldama/projects/work/cds/CDS_PHTriggers/target/classes started by caldama in /Users/caldama/projects/work/cds/CDS_PHTriggers)
+2017-08-26 10:52:56 [main] INFO  c.n.i.c.p.PublicHealthTriggers - No active profile set, falling back to default profiles: default
+2017-08-26 10:52:56 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Sat Aug 26 10:52:56 EDT 2017]; root of context hierarchy
+2017-08-26 10:52:59 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-08-26 10:53:00 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 10005 (http)
+2017-08-26 10:53:00 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+2017-08-26 10:53:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-08-26 10:53:01 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring embedded WebApplicationContext
+2017-08-26 10:53:01 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4212 ms
+2017-08-26 10:53:01 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-26 10:53:01 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-26 10:53:01 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-26 10:53:01 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-26 10:53:01 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Sat Aug 26 10:52:56 EDT 2017]; root of context hierarchy
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}/{code_id}]}" onto public com.northgrum.irad.cds.phTriggers.model.RCTCCode com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCode(java.lang.String,java.lang.String)
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public org.springframework.http.ResponseEntity<com.northgrum.irad.cds.phTriggers.model.CDSServiceList> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getListOfServices() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/phtriggers_rctc],methods=[POST]}" onto public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}]}" onto public java.util.List<com.northgrum.irad.cds.phTriggers.model.RCTCCode> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCodesByCategory(java.lang.String)
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/version]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.version()
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/ping]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.ping()
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/about]}" onto public com.northgrum.irad.cds.phTriggers.About com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.about() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-26 10:53:03 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-26 10:53:04 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-26 10:53:04 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-26 10:53:04 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 10005 (http)
+2017-08-26 10:53:04 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Started PublicHealthTriggers in 9.716 seconds (JVM running for 11.185)
+2017-08-26 10:53:12 [http-nio-10005-exec-2] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-08-26 10:53:12 [http-nio-10005-exec-2] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2017-08-26 10:53:12 [http-nio-10005-exec-2] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 42 ms
+2017-08-26 10:53:12 [http-nio-10005-exec-2] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT - list of Services called.
+2017-08-26 10:53:22 [http-nio-10005-exec-3] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - 0:0:0:0:0:0:0:1 phtriggers_rctc service called.
+2017-08-26 10:54:48 [Thread-21] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77847718: startup date [Sat Aug 26 10:52:56 EDT 2017]; root of context hierarchy
+2017-08-26 10:54:48 [Thread-21] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2017-08-26 10:54:52 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Starting PublicHealthTriggers on Marcelos-MacBook-Pro.local with PID 42506 (/Users/caldama/projects/work/cds/CDS_PHTriggers/target/classes started by caldama in /Users/caldama/projects/work/cds/CDS_PHTriggers)
+2017-08-26 10:54:52 [main] INFO  c.n.i.c.p.PublicHealthTriggers - No active profile set, falling back to default profiles: default
+2017-08-26 10:54:52 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f3b84b8: startup date [Sat Aug 26 10:54:52 EDT 2017]; root of context hierarchy
+2017-08-26 10:54:53 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-08-26 10:54:53 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 10005 (http)
+2017-08-26 10:54:53 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+2017-08-26 10:54:53 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-08-26 10:54:53 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring embedded WebApplicationContext
+2017-08-26 10:54:53 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1252 ms
+2017-08-26 10:54:54 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-26 10:54:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-26 10:54:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-26 10:54:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-26 10:54:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f3b84b8: startup date [Sat Aug 26 10:54:52 EDT 2017]; root of context hierarchy
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/]}" onto public org.springframework.http.ResponseEntity<com.northgrum.irad.cds.phTriggers.model.CDSServiceList> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getListOfServices(javax.servlet.http.HttpServletRequest) throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/phtriggers_rctc],methods=[POST]}" onto public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}]}" onto public java.util.List<com.northgrum.irad.cds.phTriggers.model.RCTCCode> com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCodesByCategory(java.lang.String)
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/code/{category}/{code_id}]}" onto public com.northgrum.irad.cds.phTriggers.model.RCTCCode com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.getCode(java.lang.String,java.lang.String)
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/version]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.version()
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/about]}" onto public com.northgrum.irad.cds.phTriggers.About com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.about() throws com.fasterxml.jackson.core.JsonProcessingException
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/info/ping]}" onto public java.lang.String com.northgrum.irad.cds.phTriggers.controller.InfoServiceController.ping()
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-26 10:54:54 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-26 10:54:54 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-26 10:54:54 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 10005 (http)
+2017-08-26 10:54:54 [main] INFO  c.n.i.c.p.PublicHealthTriggers - Started PublicHealthTriggers in 2.535 seconds (JVM running for 3.372)
+2017-08-26 10:54:59 [http-nio-10005-exec-1] INFO  o.a.c.c.C.[.[.[/cds-services] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-08-26 10:54:59 [http-nio-10005-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2017-08-26 10:54:59 [http-nio-10005-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 45 ms
+2017-08-26 10:55:00 [http-nio-10005-exec-1] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - 0:0:0:0:0:0:0:1 phtriggers_rctc service called.
+2017-08-26 10:55:01 [http-nio-10005-exec-3] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT - 0:0:0:0:0:0:0:1 list of Services called.
+2017-08-26 10:55:04 [http-nio-10005-exec-4] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - 0:0:0:0:0:0:0:1 phtriggers_rctc service called.
+2017-08-26 10:55:06 [http-nio-10005-exec-5] INFO  c.n.i.c.p.c.CDSServicesController - AUDIT  - 0:0:0:0:0:0:0:1 phtriggers_rctc service called.
+2017-08-26 10:55:06 [http-nio-10005-exec-5] ERROR c.n.i.c.p.c.CDSServicesController - Unable to parse JSON Sent to phtriggers_rctc. Sending Bad Payload error to user
+2017-08-26 10:55:08 [http-nio-10005-exec-6] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity com.northgrum.irad.cds.phTriggers.controller.CDSServicesController.checkCodeReportability(java.lang.String,javax.servlet.http.HttpServletRequest)

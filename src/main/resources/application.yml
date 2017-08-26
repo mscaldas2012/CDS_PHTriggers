@@ -11,3 +11,13 @@ server:
 
 triggersConfig:
   rctc_codes: rctc_codes.csv
+
+
+# Logging pattern for the console
+logging:
+  file: ./logs.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Logging pattern for file
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

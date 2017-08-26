@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.JsonPathException;
-import com.jayway.jsonpath.PathNotFoundException;
 import com.northgrum.irad.cds.phTriggers.model.*;
 import com.northgrum.irad.cds.phTriggers.service.RCTCCodeServices;
 import org.apache.commons.logging.Log;
@@ -16,9 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.Context;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 //@RequestMapping("/cds-services")
@@ -33,7 +33,7 @@ public class CDSServicesController {
 
     private static final String OBSERVATION = "observation";
     private static final String LABORATORY = "laboratory";
-    public static final String LAB_OBS_TEST_NAME = "Lab obs Test Name";
+    public static final String LAB_OBS_TEST_NAME = "LAB_OBS_TEST_NAME";
 
 
     @Autowired
@@ -44,7 +44,8 @@ public class CDSServicesController {
 
     @RequestMapping("/")
     @ResponseBody
-    public ResponseEntity<CDSServiceList> getListOfServices()  throws JsonProcessingException {
+    public ResponseEntity<CDSServiceList> getListOfServices(@Context HttpServletRequest request)  throws JsonProcessingException {
+        log.info("AUDIT - " + request.getRemoteAddr() + " list of Services called.");
         return ResponseEntity.ok(services );
     }
 
@@ -57,29 +58,33 @@ public class CDSServicesController {
      */
     @RequestMapping(value = "phtriggers_rctc", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity checkCodeReportability(@RequestBody String body)  {
+    public ResponseEntity checkCodeReportability(@RequestBody String body, @Context HttpServletRequest request)  {
+
+        log.info("AUDIT - " + request.getRemoteAddr() + " phtriggers_rctc service called.");
         CDSResponse response = new CDSResponse();
         try {
             Card card = new Card();
             DocumentContext jsonContext = JsonPath.parse(body);
             List<RCTCCode> matchingCodes = checkLabTestCodes(jsonContext);
             if (matchingCodes != null && matchingCodes.size() > 0 ) {
-                card.setSummary("This case is Possibly Reportable. It should be sent as an eICR to your Public Health intermediary for final Adjudication");
-                card.setDetail("The following codes were found as candidates: " + matchingCodes.stream().map(m -> m.getCode()).collect(Collectors.joining(",")));
-            } else {
-                card.setSummary("This case is Not Reportable. No Action is required");
-                card.setDetail("No codes that flag reports were found.");
+                card.setSummary("Match found in RCTC");
+                card.setDetail("This encounter event includes a code that matched a reportable condition trigger code. An eICR should be sent to Public Health/Intermediary for secondary adjudication");
+//            } else {
+//                card.setSummary("This case is Not Reportable. No Action is required");
+//                card.setDetail("No codes that flag reports were found.");
+                response.addCard(card);
             }
-            response.addCard(card);
-        } catch (PathNotFoundException e) {
-            Card card = new Card();
-            card.setSummary("This case is Not Reportable. No Action is required");
-            card.setDetail("No codes that flag reports were found.");
-            response.addCard(card);
+//        } catch (PathNotFoundException e) {
+//            Card card = new Card();
+//            card.setSummary("This case is Not Reportable. No Action is required");
+//            card.setDetail("No codes that flag reports were found.");
+//            response.addCard(card);
         } catch (JsonPathException e) {
+            log.error("Unable to parse JSON Sent to phtriggers_rctc. Sending Bad Payload error to user");
             ErrorMessage error = new ErrorMessage("BAD_PAYLOAD", "Unable to process payload!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
         } catch (Exception e) {
+            log.error("Unable to process request to phtriggers_rctc. Sending Internal Server Error to user");
             ErrorMessage error = new ErrorMessage("Ooops!", "Unable to process request!");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
         }

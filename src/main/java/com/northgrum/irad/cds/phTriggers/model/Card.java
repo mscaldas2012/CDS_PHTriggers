@@ -11,6 +11,7 @@ public class Card {
     private String detail;
     private String indicator = "info";
     private List<Suggestion> suggestions;
+    private Source source = new Source();
 
 }
 
@@ -26,4 +27,9 @@ class Action {
     private String type = "create";
     private String description ;
     private String resources;
+}
+
+@Data
+class Source {
+    private String label = "PHTriggers RCTC Service";
 }
