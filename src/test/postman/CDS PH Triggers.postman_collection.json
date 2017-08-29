@@ -1,0 +1,256 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CDS PH Triggers",
+		"_postman_id": "0fea9cd1-f802-226b-98e5-c321d89e5a0d",
+		"description": "Quick scripts to test the CDS Hooks for PH Triggers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get List of Services",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"services list\"] = responseCode.code == 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"serivce endpoint present\"] = data.services[0].id === \"phtriggers_rctc\";",
+							"tests[\"serivce endpoint present\"] = data.services[0].hook === \"lab-order-create\";",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL}}/cds-services",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Positive Matching - Resource only",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"response status 200\"] = responseCode.code == 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"reportable string\"] = data.cards[0].summary.has(\"Match found in RCTC\");",
+							"",
+							"tests[\"codes present\"] = data.cards[0].detail.has(\"This encounter event includes a code that matched a reportable condition trigger code\")",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL}}/cds-services/phtriggers_rctc",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"resource\": {\n    \"resourceType\": \"Observation\",\n    \"id\": \"M5851276\",\n    \"meta\": {\n      \"versionId\": \"1-5851275\",\n      \"lastUpdated\": \"2016-01-26T19:54:14.000Z\"\n    },\n    \"text\": {\n      \"status\": \"generated\",\n      \"div\": \"<div><p><b>Observation</b></p><p><b>Patient</b>: 3998008</p><p><b>Status</b>: Auth (Verified)</p><p><b>Category</b>: Laboratory</p><p><b>Code</b>: RBC</p><p><b>Result</b>: 5 x10(3)/mcL</p><p><b>Risk Level</b>: Normal</p><p><b>Date</b>: 2016-01-26T19:41:00.000Z</p><p><b>Risk Level Detail</b>: Low: 4 x10(3)/mcL High: 6 x10(3)/mcL</p></div>\"\n    },\n    \"status\": \"final\",\n    \"category\": {\n      \"coding\": [\n        {\n          \"system\": \"http://hl7.org/fhir/observation-category\",\n          \"code\": \"laboratory\",\n          \"display\": \"Laboratory\"\n        }\n      ],\n      \"text\": \"Laboratory\"\n    },\n    \"code\": {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"36902-5\",\n          \"display\": \"ERYTHROCYTES:NCNC:PT:BLD:QN:AUTOMATED COUNT\"\n        },\n         {\n                  \"system\": \"http://loinc.org\",\n                  \"code\": \"1234-5\",\n                  \"display\": \"ERYTHROCYTES:NCNC:PT:BLD:QN:AUTOMATED COUNT\"\n         }\n      ],\n      \"text\": \"RBC\"\n    },\n    \"subject\": {\n      \"reference\": \"Patient/3998008\"\n    },\n    \"encounter\": {\n      \"reference\": \"Encounter/3651924\"\n    },\n    \"effectiveDateTime\": \"2016-01-26T19:41:00.000Z\",\n    \"issued\": \"2016-01-26T19:54:07.000Z\",\n    \"valueQuantity\": {\n      \"value\": 5,\n      \"unit\": \"x10(3)/mcL\",\n      \"system\": \"http://unitsofmeasure.org\",\n      \"code\": \"10*3/uL\"\n    },\n    \"interpretation\": {\n      \"coding\": [\n        {\n          \"system\": \"http://hl7.org/fhir/v2/0078\",\n          \"code\": \"N\",\n          \"display\": \"Normal\"\n        }\n      ]\n    },\n    \"comments\": \"{\\\\rtf1\\\\ansi\\\\ansicpg1252\\\\uc0\\\\deff0{\\\\fonttbl\\r\\n{\\\\f0\\\\fswiss\\\\fcharset0\\\\fprq2 Arial;}\\r\\n{\\\\f1\\\\froman\\\\fcharset2\\\\fprq2 Symbol;}}\\r\\n{\\\\colortbl;\\\\red0\\\\green0\\\\blue0;\\\\red255\\\\green255\\\\blue255;}\\r\\n{\\\\*\\\\generator TX_RTF32 10.1.323.501;}\\r\\n\\\\deftab1134\\\\pard\\\\plain\\\\f0\\\\fs24\\\\cb2\\\\chshdng0\\\\chcfpat0\\\\chcbpat2 This is interpretative data for RBC.  This should apply to all routed to service resources.\\\\par\\\\pard\\\\par }\",\n    \"referenceRange\": [\n      {\n        \"low\": {\n          \"value\": 4,\n          \"unit\": \"x10(3)/mcL\",\n          \"system\": \"http://unitsofmeasure.org\",\n          \"code\": \"10*3/uL\"\n        },\n        \"high\": {\n          \"value\": 6,\n          \"unit\": \"x10(3)/mcL\",\n          \"system\": \"http://unitsofmeasure.org\",\n          \"code\": \"10*3/uL\"\n        }\n      }\n    ]\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Positive Matching Full Context with Patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"response status 200\"] = responseCode.code == 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"reportable string\"] = data.cards[0].summary.has(\"Match found in RCTC\");",
+							"",
+							"tests[\"codes present\"] = data.cards[0].detail.has(\"This encounter event includes a code that matched a reportable condition trigger code\")",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL}}/cds-services/phtriggers_rctc",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"hookInstance\" : \"<d1577c69-dfbe-44ad-ba6d-3e05e953b2ea>\",\n   \"fhirServer\" : \"https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if\",\n   \"hook\" : \"lab-order-create\",\n   \"redirect\" : \"\",\n   \"user\" : \"Practitioner/example\",\n   \"context\" : [\n                  {\n\t\t\t\t\t\n\t\t\t\t\t  \"resource\": {\n\t\t\t\t\t    \"resourceType\": \"Observation\",\n\t\t\t\t\t    \"id\": \"M5851276\",\n\t\t\t\t\t    \"meta\": {\n\t\t\t\t\t      \"versionId\": \"1-5851275\",\n\t\t\t\t\t      \"lastUpdated\": \"2016-01-26T19:54:14.000Z\"\n\t\t\t\t\t    },\n\t\t\t\t\t    \"text\": {\n\t\t\t\t\t      \"status\": \"generated\",\n\t\t\t\t\t      \"div\": \"<div><p><b>Observation</b></p><p><b>Patient</b>: 3998008</p><p><b>Status</b>: Auth (Verified)</p><p><b>Category</b>: Laboratory</p><p><b>Code</b>: RBC</p><p><b>Result</b>: 5 x10(3)/mcL</p><p><b>Risk Level</b>: Normal</p><p><b>Date</b>: 2016-01-26T19:41:00.000Z</p><p><b>Risk Level Detail</b>: Low: 4 x10(3)/mcL High: 6 x10(3)/mcL</p></div>\"\n\t\t\t\t\t    },\n\t\t\t\t\t    \"status\": \"final\",\n\t\t\t\t\t    \"category\": {\n\t\t\t\t\t      \"coding\": [\n\t\t\t\t\t        {\n\t\t\t\t\t          \"system\": \"http://hl7.org/fhir/observation-category\",\n\t\t\t\t\t          \"code\": \"laboratory\",\n\t\t\t\t\t          \"display\": \"Laboratory\"\n\t\t\t\t\t        }\n\t\t\t\t\t      ],\n\t\t\t\t\t      \"text\": \"Laboratory\"\n\t\t\t\t\t    },\n\t\t\t\t\t    \"code\": {\n\t\t\t\t\t      \"coding\": [\n\t\t\t\t\t        {\n\t\t\t\t\t          \"system\": \"http://loinc.org\",\n\t\t\t\t\t          \"code\": \"43891-1\",\n\t\t\t\t\t          \"display\": \"Bordetella pertussis Ag [Presence] in Sputum by Immunofluorescence\"\n\t\t\t\t\t        }\n\t\t\t\t\t      ],\n\t\t\t\t\t      \"text\": \"RBC\"\n\t\t\t\t\t    },\n\t\t\t\t\t    \"subject\": {\n\t\t\t\t\t      \"reference\": \"Patient/3998008\"\n\t\t\t\t\t    },\n\t\t\t\t\t    \"encounter\": {\n\t\t\t\t\t      \"reference\": \"Encounter/3651924\"\n\t\t\t\t\t    },\n\t\t\t\t\t    \"effectiveDateTime\": \"2016-01-26T19:41:00.000Z\",\n\t\t\t\t\t    \"issued\": \"2016-01-26T19:54:07.000Z\",\n\t\t\t\t\t    \"valueQuantity\": {\n\t\t\t\t\t      \"value\": 5,\n\t\t\t\t\t      \"unit\": \"x10(3)/mcL\",\n\t\t\t\t\t      \"system\": \"http://unitsofmeasure.org\",\n\t\t\t\t\t      \"code\": \"10*3/uL\"\n\t\t\t\t\t    },\n\t\t\t\t\t    \"interpretation\": {\n\t\t\t\t\t      \"coding\": [\n\t\t\t\t\t        {\n\t\t\t\t\t          \"system\": \"http://hl7.org/fhir/v2/0078\",\n\t\t\t\t\t          \"code\": \"N\",\n\t\t\t\t\t          \"display\": \"Normal\"\n\t\t\t\t\t        }\n\t\t\t\t\t      ]\n\t\t\t\t\t    },\n\t\t\t\t\t    \"comments\": \"{\\\\rtf1\\\\ansi\\\\ansicpg1252\\\\uc0\\\\deff0{\\\\fonttbl\\r\\n{\\\\f0\\\\fswiss\\\\fcharset0\\\\fprq2 Arial;}\\r\\n{\\\\f1\\\\froman\\\\fcharset2\\\\fprq2 Symbol;}}\\r\\n{\\\\colortbl;\\\\red0\\\\green0\\\\blue0;\\\\red255\\\\green255\\\\blue255;}\\r\\n{\\\\*\\\\generator TX_RTF32 10.1.323.501;}\\r\\n\\\\deftab1134\\\\pard\\\\plain\\\\f0\\\\fs24\\\\cb2\\\\chshdng0\\\\chcfpat0\\\\chcbpat2 This is interpretative data for RBC.  This should apply to all routed to service resources.\\\\par\\\\pard\\\\par }\",\n\t\t\t\t\t    \"referenceRange\": [\n\t\t\t\t\t      {\n\t\t\t\t\t        \"low\": {\n\t\t\t\t\t          \"value\": 4,\n\t\t\t\t\t          \"unit\": \"x10(3)/mcL\",\n\t\t\t\t\t          \"system\": \"http://unitsofmeasure.org\",\n\t\t\t\t\t          \"code\": \"10*3/uL\"\n\t\t\t\t\t        },\n\t\t\t\t\t        \"high\": {\n\t\t\t\t\t          \"value\": 6,\n\t\t\t\t\t          \"unit\": \"x10(3)/mcL\",\n\t\t\t\t\t          \"system\": \"http://unitsofmeasure.org\",\n\t\t\t\t\t          \"code\": \"10*3/uL\"\n\t\t\t\t\t        }\n\t\t\t\t\t      }\n\t\t\t\t\t    ]\n\t\t\t\t\t  }\n \t\t\t\t  }\n  \t\t\t\t],\n    \"patient\" : \"1316035\"\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "No Matching codes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"response status 200\"] = responseCode.code == 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"empty cards\"] = data.cards.length === 0;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL}}/cds-services/phtriggers_rctc",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"resource\": {\n    \"resourceType\": \"Observation\",\n    \"id\": \"M5851276\",\n    \"meta\": {\n      \"versionId\": \"1-5851275\",\n      \"lastUpdated\": \"2016-01-26T19:54:14.000Z\"\n    },\n    \"text\": {\n      \"status\": \"generated\",\n      \"div\": \"<div><p><b>Observation</b></p><p><b>Patient</b>: 3998008</p><p><b>Status</b>: Auth (Verified)</p><p><b>Category</b>: Laboratory</p><p><b>Code</b>: RBC</p><p><b>Result</b>: 5 x10(3)/mcL</p><p><b>Risk Level</b>: Normal</p><p><b>Date</b>: 2016-01-26T19:41:00.000Z</p><p><b>Risk Level Detail</b>: Low: 4 x10(3)/mcL High: 6 x10(3)/mcL</p></div>\"\n    },\n    \"status\": \"final\",\n    \"category\": {\n      \"coding\": [\n        {\n          \"system\": \"http://hl7.org/fhir/observation-category\",\n          \"code\": \"laboratory\",\n          \"display\": \"Laboratory\"\n        }\n      ],\n      \"text\": \"Laboratory\"\n    },\n    \"code\": {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"35735-1\",\n          \"display\": \"ERYTHROCYTES:NCNC:PT:BLD:QN:AUTOMATED COUNT\"\n        },\n         {\n                  \"system\": \"http://loinc.org\",\n                  \"code\": \"1234-5\",\n                  \"display\": \"ERYTHROCYTES:NCNC:PT:BLD:QN:AUTOMATED COUNT\"\n         }\n      ],\n      \"text\": \"RBC\"\n    },\n    \"subject\": {\n      \"reference\": \"Patient/3998008\"\n    },\n    \"encounter\": {\n      \"reference\": \"Encounter/3651924\"\n    },\n    \"effectiveDateTime\": \"2016-01-26T19:41:00.000Z\",\n    \"issued\": \"2016-01-26T19:54:07.000Z\",\n    \"valueQuantity\": {\n      \"value\": 5,\n      \"unit\": \"x10(3)/mcL\",\n      \"system\": \"http://unitsofmeasure.org\",\n      \"code\": \"10*3/uL\"\n    },\n    \"interpretation\": {\n      \"coding\": [\n        {\n          \"system\": \"http://hl7.org/fhir/v2/0078\",\n          \"code\": \"N\",\n          \"display\": \"Normal\"\n        }\n      ]\n    },\n    \"comments\": \"{\\\\rtf1\\\\ansi\\\\ansicpg1252\\\\uc0\\\\deff0{\\\\fonttbl\\r\\n{\\\\f0\\\\fswiss\\\\fcharset0\\\\fprq2 Arial;}\\r\\n{\\\\f1\\\\froman\\\\fcharset2\\\\fprq2 Symbol;}}\\r\\n{\\\\colortbl;\\\\red0\\\\green0\\\\blue0;\\\\red255\\\\green255\\\\blue255;}\\r\\n{\\\\*\\\\generator TX_RTF32 10.1.323.501;}\\r\\n\\\\deftab1134\\\\pard\\\\plain\\\\f0\\\\fs24\\\\cb2\\\\chshdng0\\\\chcfpat0\\\\chcbpat2 This is interpretative data for RBC.  This should apply to all routed to service resources.\\\\par\\\\pard\\\\par }\",\n    \"referenceRange\": [\n      {\n        \"low\": {\n          \"value\": 4,\n          \"unit\": \"x10(3)/mcL\",\n          \"system\": \"http://unitsofmeasure.org\",\n          \"code\": \"10*3/uL\"\n        },\n        \"high\": {\n          \"value\": 6,\n          \"unit\": \"x10(3)/mcL\",\n          \"system\": \"http://unitsofmeasure.org\",\n          \"code\": \"10*3/uL\"\n        }\n      }\n    ]\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid JSON Payload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"response status 400\"] = responseCode.code == 400;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"reportable string\"] = data.code === \"BAD_PAYLOAD\";",
+							"",
+							"tests[\"error message\"] = data.message === \"Unable to process payload!\"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL}}/cds-services/phtriggers_rctc",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"test\": \"1\"\n\t\"key\": \"value\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Empty body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"response status 400\"] = responseCode.code == 400;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL}}/cds-services/phtriggers_rctc",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Test Retrieve Patient",
+			"request": {
+				"url": {
+					"raw": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035",
+					"protocol": "https",
+					"host": [
+						"fhir-open",
+						"sandboxcerner",
+						"com"
+					],
+					"path": [
+						"dstu2",
+						"0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca",
+						"Binary",
+						"$autogen-ccd-if"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "1316035",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json+fhir",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
