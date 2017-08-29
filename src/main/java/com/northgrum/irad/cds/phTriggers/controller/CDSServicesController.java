@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -125,14 +126,15 @@ public class CDSServicesController {
         HttpHeaders headers = new HttpHeaders();
         MediaType mt = new MediaType("application", "json+fhir");
 
-        headers.setAccept(Arrays.asList(mt));
+        headers.setAccept(Collections.singletonList(mt));
 
-        HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+        HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         return response.getBody();
-        //return restTemplate.getForObject(url, String.class, entity);
+        //This didn't work to add the Accept header:
+        //return restTemplate . getForObject(url, String.class, entity);
 
     }
 
