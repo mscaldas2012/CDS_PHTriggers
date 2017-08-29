@@ -81,8 +81,10 @@ public class CDSServicesController {
                 String fhiServer = jsonContext.read(FHIR_SERVER_PATH);
                 if (fhiServer != null ) {
                     String patient = jsonContext.read(PATIENT_ID_PATH);
-                    if (patient != null) {
-                        log.info(getPatientInfo(fhiServer+ "?patient=" + patient).substring(0, 200) + "...");
+                    if (patient != null) { //Calling method asynchronously to return results faster...
+                        new Thread(() -> {
+                            log.info("Patient Info: " + getPatientInfo(fhiServer+ "?patient=" + patient).substring(0, 200) + "...");
+                        }).start();
                     }
                 }
             } catch (PathNotFoundException e) {
