@@ -1,3 +1,6 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.phTriggers.util;
 
 import com.northgrum.irad.cds.util.CSVReader;
@@ -14,21 +17,20 @@ public class CSVReaderTest {
 
     @Test
     public void readFileFromPath() throws Exception {
-        List<String[]> result = reader.readFromPath("src/test/resources/testCSV.txt");
+        List result = reader.readFromPath("src/test/resources/testCSV.txt");
         printResults(result);
     }
 
     @Test
     public void readFileFromResource() throws IOException {
-        List<String[]> result = reader.readFromResource("testCSV.txt");
+        List result = reader.readFromResource("testCSV.txt");
         printResults(result);
     }
 
     @Test
     public void testReadFileIntoObject() throws IOException {
-        List<Country> inputList = new ArrayList<>();
-        inputList = reader.readFromResource("testcSV.txt", mapToItem);
-        for (Country c: inputList) {
+        List inputList = reader.readFromResource("testcSV.txt", mapToItem);
+        for (Object c: inputList) {
             System.out.println("c = " + c);
         }
     }
@@ -44,7 +46,7 @@ public class CSVReaderTest {
     };
 
     private void printResults(List<String[]> result) {
-        result.stream().forEach(l -> {
+        result.forEach(l -> {
             for(String i: l) {
                 System.out.print(i + "\t ");
             }

@@ -1,3 +1,6 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.phTriggers.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

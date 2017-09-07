@@ -1,3 +1,6 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.rest;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -11,9 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.lang.reflect.Method;
 
-/**
- * Created by caldama on 10/6/16.
- */
 public class VersionRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
     @Value("${server.apiContext}")

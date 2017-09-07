@@ -1,5 +1,7 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.phTriggers.controller;
-
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jayway.jsonpath.DocumentContext;
@@ -12,13 +14,14 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -92,12 +95,12 @@ public class CDSServicesController {
 
             }
         } catch (JsonPathException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             log.error("Unable to parse JSON Sent to phtriggers_rctc. Sending Bad Payload error to user");
             ErrorMessage error = new ErrorMessage("BAD_PAYLOAD", "Unable to process payload!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             log.error("Unable to process request to phtriggers_rctc. Sending Internal Server Error to user");
             ErrorMessage error = new ErrorMessage("Ooops!", "Unable to process request!");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
@@ -154,8 +157,8 @@ public class CDSServicesController {
 //    @ExceptionHandler({HttpMessageNotReadableException.class, HttpMediaTypeNotSupportedException.class})
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)
 //    @RequestMapping("/error")
-    public ResponseEntity<ErrorMessage> resolveException(HttpServletRequest request) {
-        ErrorMessage error = new ErrorMessage("BAD_REQUEST", "Unable to process payload");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
-    }
+//    public ResponseEntity<ErrorMessage> resolveException(HttpServletRequest request) {
+//        ErrorMessage error = new ErrorMessage("BAD_REQUEST", "Unable to process payload");
+//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+//    }
 }

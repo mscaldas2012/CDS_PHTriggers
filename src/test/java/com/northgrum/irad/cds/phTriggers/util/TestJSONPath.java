@@ -1,16 +1,17 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.phTriggers.util;
 
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
-import net.sf.saxon.functions.Collection;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertTrue;
@@ -19,8 +20,8 @@ import static org.junit.Assert.fail;
 public class TestJSONPath {
 
 
-    String jsonpathCreatorNamePath = "$['tool']['jsonpath']['creator']['name']";
-    String jsonpathCreatorLocationPath = "$['tool']['jsonpath']['creator']['location'][*]";
+    private String jsonpathCreatorNamePath = "$['tool']['jsonpath']['creator']['name']";
+    private String jsonpathCreatorLocationPath = "$['tool']['jsonpath']['creator']['location'][*]";
 
     @Test
     public void testSimpleFile() throws IOException {

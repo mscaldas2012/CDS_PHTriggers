@@ -1,3 +1,6 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.rest;
 
 import org.springframework.core.annotation.AnnotationUtils;
@@ -7,9 +10,6 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Method;
 
-/**
- * Created by caldama on 10/6/16.
- */
 public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
     private final String prefix;
 

@@ -1,3 +1,6 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.phTriggers.controller;
 
 import com.northgrum.irad.cds.phTriggers.About;
@@ -11,10 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.containsString;
-
-/**
- * Created by marcelo on 10/4/16.
- */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

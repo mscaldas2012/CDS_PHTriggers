@@ -1,3 +1,6 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.phTriggers.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,11 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-
-
-/**
- * Created by marcelo on 10/4/16.
- */
 
 @RestController
 @RequestMapping("/info/")

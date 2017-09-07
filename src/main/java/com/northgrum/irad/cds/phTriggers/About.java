@@ -1,3 +1,6 @@
+/**
+ * Copyright notice (c) 2017 Northrop Grumman Services Corporation
+ */
 package com.northgrum.irad.cds.phTriggers;
 
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -13,10 +16,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-
-/**
- * Created by marcelo on 10/7/16.
- */
 @Data
 @Configuration
 @EnableConfigurationProperties
