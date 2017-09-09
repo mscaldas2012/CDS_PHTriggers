@@ -33,9 +33,9 @@ public class CDSServicesController {
     private Log log = LogFactory.getLog(CDSServicesController.class);
 
 
-    private static final String LAB_TEST_OBESRVATION_PATH = "$..resource.resourceType";
-    private static final String LAB_TEST_LABORATORY_CATEGORY_PATH = "$..resource.category.text";
-    private static final String LAB_TEST_CODING_PATH = "$..resource.code.coding[*].code";
+    private static final String LAB_TEST_OBESRVATION_PATH = "$..resourceType";
+    private static final String LAB_TEST_LABORATORY_CATEGORY_PATH = "$..category.coding[*].code";
+    private static final String LAB_TEST_CODING_PATH = "$..code.coding[*].code";
 
     private static final String FHIR_SERVER_PATH = "$.fhirServer";
     private static final String PATIENT_ID_PATH = "$.patient";
@@ -95,12 +95,12 @@ public class CDSServicesController {
 
             }
         } catch (JsonPathException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             log.error("Unable to parse JSON Sent to phtriggers_rctc. Sending Bad Payload error to user");
             ErrorMessage error = new ErrorMessage("BAD_PAYLOAD", "Unable to process payload!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             log.error("Unable to process request to phtriggers_rctc. Sending Internal Server Error to user");
             ErrorMessage error = new ErrorMessage("Ooops!", "Unable to process request!");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
@@ -112,16 +112,20 @@ public class CDSServicesController {
     private List<RCTCCode> checkLabTestCodes(DocumentContext jsonContext) {
         List<RCTCCode> result = new ArrayList<>();
         List<String> observations = jsonContext.read(LAB_TEST_OBESRVATION_PATH);
-        if (observations != null && OBSERVATION.equalsIgnoreCase(observations.get(0))) {
+        if (observations != null && observations.size() > 0 && OBSERVATION.equalsIgnoreCase(observations.get(0))) {
             List<String> labs = jsonContext.read(LAB_TEST_LABORATORY_CATEGORY_PATH);
-            if (labs != null && LABORATORY.equalsIgnoreCase(labs.get(0))) {
+            if (labs != null && labs.size() > 0 && LABORATORY.equalsIgnoreCase(labs.get(0))) {
                 List<String> codes = jsonContext.read(LAB_TEST_CODING_PATH);
                 for (String code : codes) {
                     RCTCCode match = rctcServices.getCode(LAB_OBS_TEST_NAME, code);
                     if (match != null) result.add(match);
                 }
 
+            } else {
+                log.info("No Laboratory node found");
             }
+        } else {
+            log.info ("No obsevation node found");
         }
         return result;
     }
