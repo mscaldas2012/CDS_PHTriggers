@@ -6,6 +6,7 @@ package com.northgrum.irad.cds.phTriggers.model;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -13,7 +14,7 @@ public class Card {
     private String summary;
     private String detail;
     private String indicator = "info";
-    private List<Suggestion> suggestions;
+    private List<Suggestion> suggestions = new ArrayList<>();
     private Source source = new Source();
 
 }

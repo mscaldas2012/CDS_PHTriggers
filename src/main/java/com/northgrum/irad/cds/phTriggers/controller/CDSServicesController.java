@@ -86,7 +86,7 @@ public class CDSServicesController {
                     String patient = jsonContext.read(PATIENT_ID_PATH);
                     if (patient != null) { //Calling method asynchronously to return results faster...
                         new Thread(() -> {
-                            log.info("Patient Info: " + getPatientInfo(fhiServer+ "?patient=" + patient).substring(0, 200) + "...");
+                            log.info("Patient Info: " + getPatientInfo(fhiServer+ "/Binary/$autogen-ccd-if?patient=" + patient).substring(0, 200) + "...");
                         }).start();
                     }
                 }
