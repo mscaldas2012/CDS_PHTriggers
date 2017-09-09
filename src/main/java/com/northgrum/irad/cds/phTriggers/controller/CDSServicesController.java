@@ -43,6 +43,7 @@ public class CDSServicesController {
     private static final String OBSERVATION = "observation";
     private static final String LABORATORY = "laboratory";
     public static final String LAB_OBS_TEST_NAME = "LAB_OBS_TEST_NAME";
+    private static final String LAB_ORDER_TEST_NAME = "LAB_ORDER_TEST_NAME";
 
 
     @Autowired
@@ -117,7 +118,7 @@ public class CDSServicesController {
             if (labs != null && labs.size() > 0 && LABORATORY.equalsIgnoreCase(labs.get(0))) {
                 List<String> codes = jsonContext.read(LAB_TEST_CODING_PATH);
                 for (String code : codes) {
-                    RCTCCode match = rctcServices.getCode(LAB_OBS_TEST_NAME, code);
+                    RCTCCode match = rctcServices.getCode(LAB_ORDER_TEST_NAME, code);
                     if (match != null) result.add(match);
                 }
 
