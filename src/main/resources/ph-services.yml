@@ -2,6 +2,11 @@
 services:
   -
     id: phtriggers_rctc
-    title: Code Reportability verification
-    description: This service checks a FHIR DSTU2 Observation if it has an Labs that are part of RCTC (Repotable Conditions Trigger Codes)
+    title: Code Reportability verification for Lab Orders
+    description: This service checks a FHIR DSTU2 Observation if it has an Labs that are part of RCTC (Repotable Conditions Trigger Codes) for lab orders requested.
     hook: lab-order-create
+  -
+    id: phtriggers_lab_obs
+    title: Code Reportability verification for Lab Results
+    description: This service checks a FHIR DSTU2 Observation if it has any Labs that are part of RCTC (Reportable Conditions Trigger Codes) for results received.
+    hook: lab-observation

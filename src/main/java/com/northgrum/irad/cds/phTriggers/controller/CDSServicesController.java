@@ -36,14 +36,21 @@ public class CDSServicesController {
     private static final String LAB_TEST_OBESRVATION_PATH = "$..resourceType";
     private static final String LAB_TEST_LABORATORY_CATEGORY_PATH = "$..category.coding[*].code";
     private static final String LAB_TEST_CODING_PATH = "$..code.coding[*].code";
+    private static final String HOOK_PATH = "$.hook";
 
     private static final String FHIR_SERVER_PATH = "$.fhirServer";
     private static final String PATIENT_ID_PATH = "$.patient";
 
     private static final String OBSERVATION = "observation";
     private static final String LABORATORY = "laboratory";
+    //Lab results hook
     public static final String LAB_OBS_TEST_NAME = "LAB_OBS_TEST_NAME";
+    //Lab Order Hook
     private static final String LAB_ORDER_TEST_NAME = "LAB_ORDER_TEST_NAME";
+
+    //HOOKS:
+    private static final String LAB_CREATE_HOOK = "lab_order_create";
+    private static final String LAB_RESULTS_HOOK = "lab_results";
 
 
     @Autowired
@@ -68,13 +75,35 @@ public class CDSServicesController {
      */
     @RequestMapping(value = "phtriggers_rctc", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity checkCodeReportability(@RequestBody String body, @Context HttpServletRequest request)  {
+    public ResponseEntity checkLabOrders(@RequestBody String body, @Context HttpServletRequest request)  {
         log.info("AUDIT - " + request.getRemoteAddr() + " phtriggers_rctc service called.");
+        //This code was based on multiple hooks for asingle service - not supported by the specs.
+//            String hook = jsonContext.read(HOOK_PATH);
+//            String codeBucket;
+//            if (LAB_CREATE_HOOK.equalsIgnoreCase(hook)) {
+//                codeBucket = LAB_ORDER_TEST_NAME;
+//            } else if (LAB_RESULTS_HOOK.equalsIgnoreCase(hook)) {
+//                codeBucket = LAB_OBS_TEST_NAME;
+//            } else {
+//                log.info("Invalid hook provided: " + hook);
+//                ErrorMessage error = new ErrorMessage("INVALID_HOOK", "Service does not recognize hook " + hook);
+//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+//            }
+
+        return retrieveCodes(body, LAB_ORDER_TEST_NAME);
+    }
+
+    @RequestMapping(value="phtriggers_lab_obs", method = RequestMethod.POST)
+    public  ResponseEntity checkLabResults(@RequestBody String body, @Context HttpServletRequest request)  {
+        return retrieveCodes(body, LAB_OBS_TEST_NAME);
+    }
+
+    private ResponseEntity retrieveCodes(String body, String caseBucket) {
         CDSResponse response = new CDSResponse();
         try {
             Card card = new Card();
             DocumentContext jsonContext = JsonPath.parse(body);
-            List<RCTCCode> matchingCodes = checkLabTestCodes(jsonContext);
+            List<RCTCCode> matchingCodes = checkLabTestCodes(jsonContext, caseBucket);
             if (matchingCodes != null && matchingCodes.size() > 0 ) {
                 card.setSummary("Match found in RCTC");
                 card.setDetail("This encounter event includes a code that matched a reportable condition trigger code. An eICR should be sent to Public Health/Intermediary for secondary adjudication");
@@ -109,8 +138,7 @@ public class CDSServicesController {
 
         return ResponseEntity.ok(response);
     }
-
-    private List<RCTCCode> checkLabTestCodes(DocumentContext jsonContext) {
+    private List<RCTCCode> checkLabTestCodes(DocumentContext jsonContext, String codeBucket) {
         List<RCTCCode> result = new ArrayList<>();
         List<String> observations = jsonContext.read(LAB_TEST_OBESRVATION_PATH);
         if (observations != null && observations.size() > 0 && OBSERVATION.equalsIgnoreCase(observations.get(0))) {
@@ -118,16 +146,19 @@ public class CDSServicesController {
             if (labs != null && labs.size() > 0 && LABORATORY.equalsIgnoreCase(labs.get(0))) {
                 List<String> codes = jsonContext.read(LAB_TEST_CODING_PATH);
                 for (String code : codes) {
-                    RCTCCode match = rctcServices.getCode(LAB_ORDER_TEST_NAME, code);
-                    if (match != null) result.add(match);
+                    RCTCCode match = rctcServices.getCode(codeBucket, code);
+                    if (match != null) {
+                        log.info("match found: " + match.getCode());
+                        result.add(match);
+                    }
                 }
 
-            } else {
+            } else
                 log.info("No Laboratory node found");
-            }
-        } else {
-            log.info ("No obsevation node found");
-        }
+
+        } else
+            log.info ("No Observation node found");
+
         return result;
     }
 

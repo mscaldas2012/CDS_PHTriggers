@@ -13,7 +13,9 @@ public enum Hook {
     @JsonProperty("order-view")
     ORDER_VIEW("order-view"),
     @JsonProperty("lab-order-create")
-    LAB_ORDER_CREATE("lab-order-create");
+    LAB_ORDER_CREATE("lab-order-create"),
+    @JsonProperty("lab-observation")
+    LAB_OBSERVATION("lab-observation");
 
     private String name;
 
